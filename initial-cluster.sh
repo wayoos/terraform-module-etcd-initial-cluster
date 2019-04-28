@@ -10,12 +10,12 @@ initial_cluster=""
 endpoints=""
 
 function etcd_node() {
-    local node_id="$kube_id.etcd$1"
+    local node_id="$kube_id-etcd$1"
     echo "$node_id=http://$node_id.wayoos.net:2380"
 }
 
 function etcd_endpoint() {
-    local node_id="$kube_id.etcd$1"
+    local node_id="$kube_id-etcd$1"
     echo "http://$node_id.wayoos.net:2379"
 }
 
