@@ -3,3 +3,5 @@ variable "cluster_size" {
 }
 
 variable "kube_id" {}
+
+variable "domain_name" {}

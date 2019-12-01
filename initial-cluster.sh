@@ -3,20 +3,21 @@
 # Exit if any of the intermediate steps fail
 set -e
 
-cluster_size=$1
-kube_id=$2
+domain_name=$1
+cluster_size=$2
+kube_id=$3
 
 initial_cluster=""
 endpoints=""
 
 function etcd_node() {
     local node_id="$kube_id-etcd$1"
-    echo "$node_id=http://$node_id.wayoos.net:2380"
+    echo "$node_id=http://$node_id.$domain_name:2380"
 }
 
 function etcd_endpoint() {
     local node_id="$kube_id-etcd$1"
-    echo "http://$node_id.wayoos.net:2379"
+    echo "http://$node_id.$domain_name:2379"
 }
 
 initial_cluster=$(etcd_node 0)
